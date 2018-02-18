@@ -1,7 +1,19 @@
+import java.util.Scanner;
 
 public class long_encryption {
 	
-	public static String cipher(String str, int shift) {
+	public static String cipher() {
+		
+		System.out.println("Please enter text to be encoded");
+		System.out.println("Use only Uppercase/Lowercase letters. No symbols or numbers.");
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		
+		System.out.println("Please enter a number. "
+			+ "This is how much your text will shift.");
+		Scanner scan = new Scanner(System.in);
+		int shift = scan.nextInt();
+		
 		// initializes empty array length of given String
 		int[] characters = new int[str.length()];
 				
@@ -31,15 +43,15 @@ public class long_encryption {
 			// append character value of number to stringbuilder encrypted
 			encrypted.append(Character.toString((char)characters[i]));
 		}
+		sc.close();
+		scan.close();
 		// return encrypted as a lowercase string
 		return encrypted.toString().toLowerCase();
 						
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(cipher("Hello world", 8));
-		
-		System.out.println(cipher("I can write full sentences and it will encrypt it and be impossible to interpret at face value", 5));
+		System.out.println(cipher());
 		
 	}
 }
